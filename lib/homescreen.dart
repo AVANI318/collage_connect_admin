@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/users.dart';
+import 'package:flutter_application_1/colleges.dart';
+import 'package:flutter_application_1/feedback.dart';
+import 'package:flutter_application_1/reports.dart';
+import 'package:flutter_application_1/students.dart';
+
+import 'dashboard.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -99,19 +104,11 @@ class _HomeScreenState extends State<HomeScreen>
             child: TabBarView(
               controller: _tabController,
               children: [
-                Dashboard(),
-                Container(
-                  color: Color.fromARGB(255, 232, 165, 221),
-                ),
-                Container(
-                  color: Color.fromARGB(255, 245, 183, 178),
-                ),
-                Container(
-                  color: Color.fromARGB(255, 195, 241, 195),
-                ),
-                Container(
-                  color: Color.fromARGB(255, 240, 232, 161),
-                )
+                DashboardScreen(),
+                CollegesScreen(),
+                StudentTable(),
+                AdminFeedbackTab(),
+                AdminReportsTab(),
               ],
             ),
           ),
@@ -121,64 +118,64 @@ class _HomeScreenState extends State<HomeScreen>
   }
 }
 
-class Dashboard extends StatelessWidget {
-  const Dashboard({
-    super.key,
-  });
+// class Dashboard extends StatelessWidget {
+//   const Dashboard({
+//     super.key,
+//   });
 
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('DASHBOARD',
-              style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold)),
-          SizedBox(
-            height: 30,
-          ),
-          Row(children: [
-            Container(
-              decoration: ShapeDecoration(
-                  color: Color.fromARGB(255, 182, 217, 236),
-                  shape: RoundedRectangleBorder(
-                      side: BorderSide(width: 1),
-                      borderRadius: BorderRadius.circular(16.0))),
-              height: 200,
-              width: 200,
-              child: Column(children: [
-                Icon(
-                  Icons.school_sharp,
-                  size: 150,
-                ),
-              ]),
-            ),
-            SizedBox(
-              width: 25,
-            ),
-            Container(
-                decoration: ShapeDecoration(
-                    color: Color.fromARGB(255, 182, 217, 236),
-                    shape: RoundedRectangleBorder(
-                        side: BorderSide(width: 1),
-                        borderRadius: BorderRadius.circular(16.0))),
-                height: 200,
-                width: 200,
-                child: Column(
-                  children: [
-                    Icon(
-                      Icons.people,
-                      size: 150,
-                    ),
-                  ],
-                ))
-          ])
-        ],
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//       padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+//       child: Column(
+//         crossAxisAlignment: CrossAxisAlignment.start,
+//         children: [
+//           Text('DASHBOARD',
+//               style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold)),
+//           SizedBox(
+//             height: 30,
+//           ),
+//           Row(children: [
+//             Container(
+//               decoration: ShapeDecoration(
+//                   color: Color.fromARGB(255, 182, 217, 236),
+//                   shape: RoundedRectangleBorder(
+//                       side: BorderSide(width: 1),
+//                       borderRadius: BorderRadius.circular(16.0))),
+//               height: 200,
+//               width: 200,
+//               child: Column(children: [
+//                 Icon(
+//                   Icons.school_sharp,
+//                   size: 150,
+//                 ),
+//               ]),
+//             ),
+//             SizedBox(
+//               width: 25,
+//             ),
+//             Container(
+//                 decoration: ShapeDecoration(
+//                     color: Color.fromARGB(255, 182, 217, 236),
+//                     shape: RoundedRectangleBorder(
+//                         side: BorderSide(width: 1),
+//                         borderRadius: BorderRadius.circular(16.0))),
+//                 height: 200,
+//                 width: 200,
+//                 child: Column(
+//                   children: [
+//                     Icon(
+//                       Icons.people,
+//                       size: 150,
+//                     ),
+//                   ],
+//                 ))
+//           ])
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 class DrawerItem extends StatelessWidget {
   final IconData iconData;
