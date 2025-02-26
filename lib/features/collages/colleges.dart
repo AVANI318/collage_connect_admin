@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:data_table_2/data_table_2.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter_application_1/common_widget/custom_alert_dialog.dart';
 import 'package:flutter_application_1/common_widget/custom_button.dart';
 import 'package:flutter_application_1/common_widget/custom_search.dart';
-import 'package:flutter_application_1/common_widget/custom_text_formfield.dart';
+import 'package:flutter_application_1/common_widget/edit_delete_button.dart';
+import 'package:flutter_application_1/features/collages/add_collage.dart';
 import 'package:flutter_application_1/features/collages/student_list_screen.dart';
-import 'package:flutter_application_1/util/value_validator.dart';
 
 class CollegesScreen extends StatelessWidget {
   const CollegesScreen({super.key});
@@ -45,7 +43,7 @@ class CollegesScreen extends StatelessWidget {
                     onPressed: () {
                       showDialog(
                         context: context,
-                        builder: (context) => AddCollege(),
+                        builder: (context) => const AddCollege(),
                       );
                     },
                     color: Colors.white,
@@ -71,11 +69,11 @@ class CollegesScreen extends StatelessWidget {
                     DataColumn2(
                         label: Text('College Name'), size: ColumnSize.L),
                     DataColumn(label: Text('Location')),
-                    DataColumn(label: Text('Students'), numeric: true),
-                    DataColumn(label: Text('Departments'), numeric: true),
-                    DataColumn2(label: Text('Status'), size: ColumnSize.S),
+                    DataColumn(label: Text('Students')),
+                    DataColumn(label: Text('Email')),
+                    DataColumn2(label: Text('Details'), size: ColumnSize.S),
                     DataColumn2(
-                        label: Text('Details'),
+                        label: Text('Action'),
                         numeric: true,
                         size: ColumnSize.S),
                   ],
@@ -83,9 +81,8 @@ class CollegesScreen extends StatelessWidget {
                     DataRow(cells: [
                       const DataCell(Text('Tech Institute of Engineering')),
                       const DataCell(Text('New York, USA')),
-                      DataCell(Text('2500')),
-                      DataCell(Text('8')),
-                      const DataCell(Text('Active')),
+                      const DataCell(Text('2500')),
+                      const DataCell(Text('tenga@gmail.com')),
                       DataCell(TextButton(
                         child: const Text('View Details'),
                         onPressed: () {
@@ -96,13 +93,13 @@ class CollegesScreen extends StatelessWidget {
                           );
                         },
                       )),
+                      const DataCell(EditDeleteButton())
                     ]),
                     DataRow(cells: [
                       const DataCell(Text('Business School of Economics')),
                       const DataCell(Text('London, UK')),
-                      DataCell(Text('1800')),
-                      DataCell(Text('5')),
-                      const DataCell(Text('Active')),
+                      const DataCell(Text('1800')),
+                      const DataCell(Text('manga@gmail.com')),
                       DataCell(TextButton(
                         child: const Text('View Details'),
                         onPressed: () {
@@ -113,202 +110,11 @@ class CollegesScreen extends StatelessWidget {
                           );
                         },
                       )),
+                      const DataCell(EditDeleteButton())
                     ]),
                   ],
                 ),
               ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class AddCollege extends StatefulWidget {
-  const AddCollege({super.key});
-
-  @override
-  _AddCollegeState createState() => _AddCollegeState();
-}
-
-class _AddCollegeState extends State<AddCollege> {
-  final TextEditingController _collegeNameController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _phoneController = TextEditingController();
-  final TextEditingController _addressLineController = TextEditingController();
-  final TextEditingController _placeController = TextEditingController();
-  final TextEditingController _stateController = TextEditingController();
-  final TextEditingController _pincodeController = TextEditingController();
-  final TextEditingController _districtController = TextEditingController();
-
-  @override
-  void dispose() {
-    _collegeNameController.dispose();
-    _emailController.dispose();
-    _phoneController.dispose();
-    _addressLineController.dispose();
-    _placeController.dispose();
-    _stateController.dispose();
-    _pincodeController.dispose();
-    _districtController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomAlertDialog(
-      title: 'Add College',
-      content: Expanded(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                'Collage Name',
-                style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  color: Colors.black,
-                  fontSize: 16.0,
-                ),
-                textAlign: TextAlign.left,
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              CustomTextFormField(
-                  labelText: 'College Name',
-                  controller: _collegeNameController,
-                  validator: notEmptyValidator,
-                  isLoading: false),
-              const Text(
-                'Collage Email Id',
-                style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  color: Colors.black,
-                  fontSize: 16.0,
-                ),
-                textAlign: TextAlign.left,
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              CustomTextFormField(
-                  labelText: 'Enter college email id',
-                  controller: _emailController,
-                  validator: notEmptyValidator,
-                  isLoading: false),
-              const Text(
-                'Phone Number',
-                style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  color: Colors.black,
-                  fontSize: 16.0,
-                ),
-                textAlign: TextAlign.left,
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              CustomTextFormField(
-                  labelText: 'Enter phone number',
-                  controller: _phoneController,
-                  validator: notEmptyValidator,
-                  isLoading: false),
-              const Text(
-                'Address Line',
-                style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  color: Colors.black,
-                  fontSize: 16.0,
-                ),
-                textAlign: TextAlign.left,
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              CustomTextFormField(
-                  labelText: 'Enter address line',
-                  controller: _addressLineController,
-                  validator: notEmptyValidator,
-                  isLoading: false),
-              const Text(
-                'Place',
-                style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  color: Colors.black,
-                  fontSize: 16.0,
-                ),
-                textAlign: TextAlign.left,
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              CustomTextFormField(
-                  labelText: 'enter place',
-                  controller: _placeController,
-                  validator: notEmptyValidator,
-                  isLoading: false),
-              const Text(
-                'State',
-                style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  color: Colors.black,
-                  fontSize: 16.0,
-                ),
-                textAlign: TextAlign.left,
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              CustomTextFormField(
-                  labelText: 'Enter state',
-                  controller: _stateController,
-                  validator: notEmptyValidator,
-                  isLoading: false),
-              const Text(
-                'Pincode',
-                style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  color: Colors.black,
-                  fontSize: 16.0,
-                ),
-                textAlign: TextAlign.left,
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              CustomTextFormField(
-                  labelText: 'Enter pincode',
-                  controller: _pincodeController,
-                  validator: pincodeValidator,
-                  isLoading: false),
-              const Text(
-                'District',
-                style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  color: Colors.black,
-                  fontSize: 16.0,
-                ),
-                textAlign: TextAlign.left,
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              CustomTextFormField(
-                  labelText: 'Enter district',
-                  controller: _districtController,
-                  validator: notEmptyValidator,
-                  isLoading: false),
-              const SizedBox(
-                height: 30,
-              ),
-              CustomButton(
-                color: Colors.white,
-                onPressed: () {},
-                label: 'Add Collage',
-              )
             ],
           ),
         ),

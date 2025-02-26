@@ -46,8 +46,7 @@ class StudentTable extends StatelessWidget {
                     DataColumn2(
                         label: Text('Student Name'), size: ColumnSize.L),
                     DataColumn(label: Text('Course')),
-                    DataColumn(label: Text('Year')),
-                    DataColumn(label: Text('Status')),
+                    DataColumn(label: Text('Reg. No')),
                     DataColumn(label: Text('Details'), numeric: true),
                   ],
                   rows: [
@@ -55,18 +54,7 @@ class StudentTable extends StatelessWidget {
                       const DataCell(Text('Alice Johnson',
                           overflow: TextOverflow.ellipsis)),
                       const DataCell(Text('Computer Science')),
-                      const DataCell(Text('2nd Year')),
-                      DataCell(Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 8, vertical: 4),
-                        decoration: BoxDecoration(
-                          color: Colors.green.withOpacity(0.1),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: const Text('Active',
-                            style:
-                                TextStyle(color: Colors.green, fontSize: 12)),
-                      )),
+                      const DataCell(Text('NF466555SD')),
                       DataCell(TextButton(
                           child: const Text('View Details'), onPressed: () {})),
                     ]),
@@ -74,18 +62,7 @@ class StudentTable extends StatelessWidget {
                       const DataCell(Text('Michael Smith',
                           overflow: TextOverflow.ellipsis)),
                       const DataCell(Text('Mechanical Engineering')),
-                      const DataCell(Text('3rd Year')),
-                      DataCell(Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 8, vertical: 4),
-                        decoration: BoxDecoration(
-                          color: Colors.orange.withOpacity(0.1),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: const Text('On Hold',
-                            style:
-                                TextStyle(color: Colors.orange, fontSize: 12)),
-                      )),
+                      const DataCell(Text('DF4464FS')),
                       DataCell(TextButton(
                           child: const Text('View Details'),
                           onPressed: () {

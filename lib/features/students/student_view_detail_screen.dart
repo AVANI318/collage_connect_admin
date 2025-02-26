@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/common_widget/custom_alert_dialog.dart';
 import 'package:flutter_application_1/common_widget/custom_button.dart';
+import 'package:flutter_application_1/features/students/add_result.dart';
 
 class StudentViewDetailScreen extends StatelessWidget {
   const StudentViewDetailScreen({super.key});
@@ -19,7 +19,7 @@ class StudentViewDetailScreen extends StatelessWidget {
             onPressed: () {
               showDialog(
                 context: context,
-                builder: (context) => const AddResult(),
+                builder: (context) => AddResult(),
               );
             },
             label: 'Add Result',
@@ -44,7 +44,7 @@ class StudentViewDetailScreen extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(50),
@@ -64,10 +64,13 @@ class StudentViewDetailScreen extends StatelessWidget {
                     const SizedBox(height: 5),
                     const Text('Reg No: 12345678'),
                     const SizedBox(height: 5),
-                    const Text('College User ID: COLLAGE12345'),
+                    const Text('College User name: Stems MOrazha'),
                   ],
                 ),
               ),
+            ),
+            const SizedBox(
+              height: 30,
             ),
             const Wrap(
               children: [
@@ -84,20 +87,6 @@ class StudentViewDetailScreen extends StatelessWidget {
   }
 }
 
-//Custom Alert Dialog for Add Result as image
-class AddResult extends StatelessWidget {
-  const AddResult({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const CustomAlertDialog(title: 'Add Result');
-  }
-}
-
-//Card to show result in the page
-
 class ResultShowcard extends StatelessWidget {
   const ResultShowcard({
     super.key,
@@ -107,13 +96,25 @@ class ResultShowcard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20),
-      child: Container(
-        height: 400,
-        width: 400,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            image: DecorationImage(image: NetworkImage(imgUrl))),
+      padding: const EdgeInsets.only(right: 20),
+      child: Column(
+        children: [
+          Container(
+            height: 220,
+            width: 400,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                image: DecorationImage(
+                    image: NetworkImage(imgUrl), fit: BoxFit.cover)),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          const Text(
+            'Title',
+            style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+          )
+        ],
       ),
     );
   }
