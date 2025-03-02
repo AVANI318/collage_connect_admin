@@ -30,8 +30,11 @@ class StudentTable extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  CustomSearch(
-                    onSearch: (p0) {},
+                  SizedBox(
+                    width: 300,
+                    child: CustomSearch(
+                      onSearch: (p0) {},
+                    ),
                   )
                 ],
               ),

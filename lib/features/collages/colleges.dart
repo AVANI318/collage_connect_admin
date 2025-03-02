@@ -4,7 +4,6 @@ import 'package:flutter_application_1/common_widget/custom_button.dart';
 import 'package:flutter_application_1/common_widget/custom_search.dart';
 import 'package:flutter_application_1/common_widget/edit_delete_button.dart';
 import 'package:flutter_application_1/features/collages/add_collage.dart';
-import 'package:flutter_application_1/features/collages/student_list_screen.dart';
 
 class CollegesScreen extends StatelessWidget {
   const CollegesScreen({super.key});
@@ -40,13 +39,13 @@ class CollegesScreen extends StatelessWidget {
                   ),
                   const SizedBox(width: 15),
                   CustomButton(
+                    inverse: true,
                     onPressed: () {
                       showDialog(
                         context: context,
                         builder: (context) => const AddCollege(),
                       );
                     },
-                    color: Colors.white,
                     label: 'Add College',
                     iconData: Icons.add,
                   )
@@ -71,11 +70,13 @@ class CollegesScreen extends StatelessWidget {
                     DataColumn(label: Text('Location')),
                     DataColumn(label: Text('Students')),
                     DataColumn(label: Text('Email')),
-                    DataColumn2(label: Text('Details'), size: ColumnSize.S),
                     DataColumn2(
-                        label: Text('Action'),
-                        numeric: true,
-                        size: ColumnSize.S),
+                      label: Align(
+                          alignment: Alignment.centerRight,
+                          child: Text('Action')),
+                      numeric: true,
+                      size: ColumnSize.L,
+                    ),
                   ],
                   rows: [
                     DataRow(cells: [
@@ -83,16 +84,6 @@ class CollegesScreen extends StatelessWidget {
                       const DataCell(Text('New York, USA')),
                       const DataCell(Text('2500')),
                       const DataCell(Text('tenga@gmail.com')),
-                      DataCell(TextButton(
-                        child: const Text('View Details'),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const StudetListScreen()),
-                          );
-                        },
-                      )),
                       const DataCell(EditDeleteButton())
                     ]),
                     DataRow(cells: [
@@ -100,16 +91,6 @@ class CollegesScreen extends StatelessWidget {
                       const DataCell(Text('London, UK')),
                       const DataCell(Text('1800')),
                       const DataCell(Text('manga@gmail.com')),
-                      DataCell(TextButton(
-                        child: const Text('View Details'),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const StudetListScreen()),
-                          );
-                        },
-                      )),
                       const DataCell(EditDeleteButton())
                     ]),
                   ],
