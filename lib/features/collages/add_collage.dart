@@ -203,7 +203,7 @@ class _AddCollegeState extends State<AddCollege> {
                 height: 30,
               ),
               CustomButton(
-                color: Colors.white,
+                inverse: true,
                 onPressed: () {},
                 label: 'Add Collage',
               )
