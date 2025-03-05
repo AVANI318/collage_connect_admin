@@ -78,20 +78,20 @@ class CollegesScreen extends StatelessWidget {
                       size: ColumnSize.L,
                     ),
                   ],
-                  rows: [
+                  rows: const [
                     DataRow(cells: [
-                      const DataCell(Text('Tech Institute of Engineering')),
-                      const DataCell(Text('New York, USA')),
-                      const DataCell(Text('2500')),
-                      const DataCell(Text('tenga@gmail.com')),
-                      const DataCell(EditDeleteButton())
+                      DataCell(Text('Tech Institute of Engineering')),
+                      DataCell(Text('New York, USA')),
+                      DataCell(Text('2500')),
+                      DataCell(Text('tenga@gmail.com')),
+                      DataCell(EditDeleteButton())
                     ]),
                     DataRow(cells: [
-                      const DataCell(Text('Business School of Economics')),
-                      const DataCell(Text('London, UK')),
-                      const DataCell(Text('1800')),
-                      const DataCell(Text('manga@gmail.com')),
-                      const DataCell(EditDeleteButton())
+                      DataCell(Text('Business School of Economics')),
+                      DataCell(Text('London, UK')),
+                      DataCell(Text('1800')),
+                      DataCell(Text('manga@gmail.com')),
+                      DataCell(EditDeleteButton())
                     ]),
                   ],
                 ),

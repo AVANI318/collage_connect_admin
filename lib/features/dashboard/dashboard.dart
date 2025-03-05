@@ -72,8 +72,8 @@ class DashboardScreen extends StatelessWidget {
                           10,
                           (index) => DataRow(
                             cells: [
-                              DataCell(
-                                const Text('Student Name'),
+                              const DataCell(
+                                Text('Student Name'),
                               ),
                               DataCell(Text('STU${1000 + index}')),
                               const DataCell(Text('Computer Science')),
@@ -139,17 +139,17 @@ class DashboardItem extends StatelessWidget {
             backgroundColor: color,
             child: Text(
               count,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
                 color: Colors.black, // Black text inside circle
               ),
             ),
           ),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           Text(
             label,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w500,
               color: Colors.black, // White text
